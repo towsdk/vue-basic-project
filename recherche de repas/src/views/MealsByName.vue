@@ -1,5 +1,5 @@
  <template>
-   <div class="p-8">
+   <div class="p-8 pb-0">
     <input 
     type="text"
       v-model="keyword"
@@ -7,16 +7,23 @@
       placeholder="Search for Meals"
       @change="searchMeals"/>
    </div>
-   <div><pre>{{ meals }}</pre></div>
+   <Meals :meals="meals"/>
 </template>
 
 <script setup>
+// import YoutubeButton from '../components/YoutubeButton.vue'
 import { computed } from "@vue/reactivity";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import store from "../store";
+import { useRoute } from "vue-router";
+// import MealItem from '../components/MealItem.vue';
+import Meals from '../components/Meals.vue'
+
+
 
 const keyword = ref('')
 const meals = computed(() => store.state.searchedMeals);
+const route = useRoute();
 
 function searchMeals(){
   //  store.dispatch('searchMeals', keyword.value);
@@ -24,4 +31,12 @@ function searchMeals(){
     store.dispatch("searchMeals1", keyword.value);
   } 
 }
+
+onMounted(()=> {
+  keyword.value = route.params.name
+  if(keyword.value){
+    searchMeals()
+  }
+})
+
 </script>

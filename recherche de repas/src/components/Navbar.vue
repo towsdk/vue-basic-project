@@ -11,9 +11,12 @@
    <router-link :to="{name: 'byName'}" class=" inline-flex items-center px-2 h-full transition-colors hover:bg-purple-100">
       Meals By Name
    </router-link>
-   <router-link :to="{name: 'byIngredeients'}" class=" inline-flex items-center px-2 h-full transition-colors hover:bg-purple-100 ">
+   <router-link :to="{name: 'ingredeients'}" class=" inline-flex items-center px-2 h-full transition-colors hover:bg-purple-100 ">
       Meals By Ingredients
    </router-link>
+   <!-- <router-link :to="{name: 'ingredeients'}" class=" inline-flex items-center px-2 h-full transition-colors hover:bg-purple-100 ">
+      Ingredients
+   </router-link> -->
 </div>
 </header>
 </template>
